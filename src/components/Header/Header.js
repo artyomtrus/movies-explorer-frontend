@@ -9,7 +9,7 @@ function Header() {
   return (
     <>
       <Switch>
-        <Route exact path={["/movies", "/saved-movies", "/"]}>
+        <Route exact path={["/movies", "/saved-movies", "/profile", "/"]}>
           <header
             className={`header header_theme_${
               pathname === "/" ? "landing" : "main"

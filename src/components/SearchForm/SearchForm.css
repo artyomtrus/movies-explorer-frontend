@@ -109,3 +109,42 @@ label:active:after {
   line-height: 18px;
   padding-left: 14px;
 }
+
+@media screen and (max-width: 769px) {
+  .search-form {
+    padding: 70px 30px 10px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .search-form {
+    padding: 70px 14px 10px;
+  }
+
+  .search-form__input {
+    min-height: 56px;
+    padding: 0 0 0 12px;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  .search-form__button {
+    min-height: 44px;
+    min-width: 80px;
+    top: 6px;
+    right: 6px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .search-form__checkbox-container {
+    padding: 31px 0 64px;
+    border-bottom: 1px solid rgba(170, 170, 170, .2);
+  }
+
+  .search-form__text {
+    font-size: 13px;
+    line-height: 18px;
+    padding-left: 13px;
+  }
+}

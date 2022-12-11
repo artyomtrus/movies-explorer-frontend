@@ -1,13 +1,9 @@
-.login {
+.login-page{
+  box-sizing: border-box;
+  padding: 70px 0;
   display: flex;
   justify-content: center;
-  height:100%;
-}
-
-.login-page{
-  height: calc(100vh - 140px);
-  padding: 70px 0;
-  margin: auto;
+  height: 100vh;
 }
 
 .login__logo {
@@ -26,7 +22,6 @@
 }
 
 .login__container {
-  box-sizing: border-box;
   min-width: 396px;
   display: flex;
   flex-direction: column;
@@ -137,7 +132,6 @@
 
 @media screen and (max-width: 769px){
   .login-page{
-    height: calc(100vh - 464px);
     padding: 232px 0;
   }
 }
