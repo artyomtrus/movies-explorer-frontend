@@ -111,7 +111,7 @@
 
 .navigation__burger {
   display: none;
-  position: fixed;
+  position: absolute;
   top: 26px;
   right: 38px;
 }
