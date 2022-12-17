@@ -26,11 +26,6 @@
   padding: 20px 0 19px;
 }
 
-.portfolio__item:hover {
-  opacity: .6;
-  transition: opacity .5s;
-}
-
 .portfolio__item:last-child {
   border: none;
 }
@@ -45,6 +40,16 @@
   letter-spacing: -0.04em;
   text-decoration: none;
   color: #ffffff;
+}
+
+.portfolio__link:hover {
+  opacity: .6;
+  transition: opacity .5s;
+}
+
+.portfolio__text {
+  padding: 0;
+  margin: 0;
 }
 
 .portfolio__arrow {

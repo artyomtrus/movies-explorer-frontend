@@ -1,4 +1,4 @@
-.login-page{
+.login{
   box-sizing: border-box;
   padding: 70px 0;
   display: flex;
@@ -131,15 +131,23 @@
 }
 
 @media screen and (max-width: 769px){
-  .login-page{
-    padding: 232px 0;
+  .login {
+    margin: auto 0;
+  }
+
+  .login__container {
+    justify-content: center;
+  }
+
+  .login__form {
+    max-height: 410px;
   }
 }
 
 @media screen and (max-width: 450px) {
-  .login-page{
-    height: calc(100vh - 86px);
+  .login {
     padding: 56px 0 30px;
+    margin: 0;
   }
 
   .login__container {
@@ -147,6 +155,11 @@
     min-width: 260px;
     display: flex;
     flex-direction: column;
+    justify-content: normal;
+  }
+
+  .login__form {
+    max-height: 100%;
   }
 
   .login__title {

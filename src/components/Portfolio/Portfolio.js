@@ -10,27 +10,27 @@ function Portfolio() {
             href="https://github.com/artyomtrus/how-to-learn"
             className="portfolio__link"
           >
-            Статичный сайт
+            <p className="portfolio__text">Статичный сайт</p>
+            <span className="portfolio__arrow"></span>
           </a>
-          <span className="portfolio__arrow"></span>
         </li>
         <li className="portfolio__item">
           <a
             href="https://github.com/artyomtrus/russian-travel"
             className="portfolio__link"
           >
-            Адаптивный сайт
+            <p className="portfolio__text">Адаптивный сайт</p>
+            <span className="portfolio__arrow"></span>
           </a>
-          <span className="portfolio__arrow"></span>
         </li>
         <li className="portfolio__item">
           <a
             href="https://github.com/artyomtrus/react-mesto-api-full"
             className="portfolio__link"
           >
-            Одностраничное приложение
+            <p className="portfolio__text">Одностраничное приложение</p>
+            <span className="portfolio__arrow"></span>
           </a>
-          <span className="portfolio__arrow"></span>
         </li>
       </ul>
     </section>

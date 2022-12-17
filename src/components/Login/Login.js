@@ -14,7 +14,7 @@ function Login(props) {
   }
 
   return (
-    <section className="login-page">
+    <section className="login">
       <div className="login__container">
         <Link to="/" className="login__link">
           <img src={logo} alt="логотип" className="login__logo" />

@@ -2,7 +2,7 @@ import "./Navigation.css";
 import { Link, NavLink } from "react-router-dom";
 
 function Navigation() {
-  const isLogged = true;
+  const isLogged = false;
 
   function toggleBurger() {
     const burger = document.querySelector(".navigation__burger-icon");
@@ -14,7 +14,7 @@ function Navigation() {
   return (
     <>
       {!isLogged ? (
-        <nav className="navigation__navbar">
+        <nav className="navigation navigation__navbar">
           <Link to="/signup" className="navigation__link">
             <p className="navigation__sign">Регистрация</p>
           </Link>
@@ -26,48 +26,50 @@ function Navigation() {
         </nav>
       ) : (
         <>
-          <div className="navigation__burger" onClick={toggleBurger}>
-            <div className="navigation__burger-icon">
-              <span></span>
-              <span></span>
-              <span></span>
+          <div className="navigation">
+            <div className="navigation__burger" onClick={toggleBurger}>
+              <div className="navigation__burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </div>
+            <ul className="navigation__navbar navigation__navbar_logged">
+              <li className="navigation__item hidden">
+                <NavLink
+                  exact
+                  to="/"
+                  className="navigation__link"
+                  activeClassName="navigation__link_active"
+                >
+                  Главная
+                </NavLink>
+              </li>
+              <li className="navigation__item">
+                <NavLink
+                  to="/movies"
+                  className="navigation__link"
+                  activeClassName="navigation__link_active"
+                >
+                  Фильмы
+                </NavLink>
+              </li>
+              <li className="navigation__item">
+                <NavLink
+                  to="/saved-movies"
+                  className="navigation__link"
+                  activeClassName="navigation__link_active"
+                >
+                  Сохраненные фильмы
+                </NavLink>
+              </li>
+              <li className="navigation__item navigation__item_profile">
+                <Link to="/profile" className="navigation__profile-name">
+                  Аккаунт
+                </Link>
+              </li>
+            </ul>
           </div>
-          <ul className="navigation__navbar navigation__navbar_logged">
-            <li className="navigation__link hidden">
-              <NavLink
-                exact
-                to="/"
-                className="navigation__link"
-                activeClassName="navigation__link_active"
-              >
-                Главная
-              </NavLink>
-            </li>
-            <li className="navigation__link">
-              <NavLink
-                to="/movies"
-                className="navigation__link"
-                activeClassName="navigation__link_active"
-              >
-                Фильмы
-              </NavLink>
-            </li>
-            <li className="navigation__link">
-              <NavLink
-                to="/saved-movies"
-                className="navigation__link"
-                activeClassName="navigation__link_active"
-              >
-                Сохраненные фильмы
-              </NavLink>
-            </li>
-            <li className="navigation__link navigation__link_profile">
-              <Link to="/profile" className="navigation__profile-name">
-                Аккаунт
-              </Link>
-            </li>
-          </ul>
         </>
       )}
     </>
