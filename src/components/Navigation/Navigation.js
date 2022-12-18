@@ -2,7 +2,7 @@ import "./Navigation.css";
 import { Link, NavLink } from "react-router-dom";
 
 function Navigation() {
-  const isLogged = false;
+  const isLogged = true;
 
   function toggleBurger() {
     const burger = document.querySelector(".navigation__burger-icon");
