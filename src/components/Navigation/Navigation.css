@@ -84,7 +84,7 @@
 
 .navigation__profile-name {
   box-sizing: border-box;
-  padding: 9.5px 36px 9.5px 11px;
+  padding: 9px 36px 9px 11px;
   color: #ffffff;
   min-width: 100px;
   max-height: 32px;
@@ -109,8 +109,8 @@
 .navigation__profile-name::after {
   position: absolute;
   content: '';
-  top: 3px;
-  right: 3px;
+  top: 4px;
+  right: 4px;
   width: 26px;
   height: 26px;
   border-radius: 50%;

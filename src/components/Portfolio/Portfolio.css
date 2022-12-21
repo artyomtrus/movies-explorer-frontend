@@ -59,7 +59,7 @@
   transform: translateY(-50%);
   min-width: 29px;
   min-height: 29px;
-  background-image: url(/src/images/arrow.svg);
+  background-image: url(../../images/arrow.svg);
   background-size: cover;
 }
 
