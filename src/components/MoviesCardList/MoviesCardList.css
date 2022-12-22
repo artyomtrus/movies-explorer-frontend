@@ -37,21 +37,34 @@
 }
 
 @media screen and (max-width: 1100px) {
-  .movies-card-list__container {
+  .movies-card-list {
     margin: 70px 30px 80px;
   }
 
   .movies-card-list__list {
     grid-template-columns: repeat(2, minmax(300px, 360px));
+    row-gap: 35px;
+    column-gap: 24px;
   }
 }
 
 @media screen and (max-width: 720px) {
-  .movies-card-list__container {
-    margin: 70px 10px 80px;
+  .movies-card-list__list {
+    grid-template-columns: repeat(1, minmax(300px, 360px));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .movies-card-list {
+    margin: 40px 10px 80px;
   }
 
   .movies-card-list__list {
-    grid-template-columns: repeat(1, minmax(300px, 360px));
+    row-gap: 16px;
+  }
+
+  .movies-card-list__more-button {
+    margin: 50px auto 0;
+    min-width: 240px;
   }
 }
