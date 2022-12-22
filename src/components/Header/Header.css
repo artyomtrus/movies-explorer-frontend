@@ -1,0 +1,44 @@
+.header {
+  min-height: 74px;
+  max-width: 1280px;
+  padding: 0 70px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.header_theme_landing {
+  background-color: #073042;
+}
+
+.header_theme_main {
+  background-color: #202020;
+}
+
+.header__link {
+  padding: 0;
+  margin: auto 0;
+  max-height: 38px;
+}
+
+.header__logo {
+  max-height: 38px;
+  margin: 0;
+}
+
+.header__logo:hover {
+  scale: 1.2;
+  transition: all .2s;
+}
+
+@media screen and (max-width: 769px) {
+  .header {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .header {
+    padding: 0 14px;
+  }
+}
