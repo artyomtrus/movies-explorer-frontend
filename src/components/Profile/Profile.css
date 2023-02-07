@@ -68,6 +68,23 @@
   width: max-content;
 }
 
+.profile__span-error {
+  margin: 16px auto 0;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #EE3465;
+  background: none;
+  border: 0;
+  width: max-content;
+}
+
+.profile__button_disabled {
+  pointer-events: none;
+  opacity: .2;
+}
+
 .profile__button:hover {
   cursor: pointer;
   opacity: 0.5;
