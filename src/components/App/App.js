@@ -86,7 +86,14 @@ function App() {
     mainApi
       .registration(email, password, name)
       .then(() => {
-        history.push("/movies");
+        mainApi.login(email, password).then((data) => {
+          if (data.token) {
+            setUserData(email);
+            handleLogin();
+            localStorage.setItem("token", data.token);
+            history.push("/movies");
+          }
+        });
       })
       .catch((err) => {
         if (err === "Ошибка: 409") {

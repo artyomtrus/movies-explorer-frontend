@@ -115,7 +115,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  baseUrl: "http://localhost:3000",
+  baseUrl: "https://api.filmopoisk.trus.nomoredomains.icu",
 });
 
 export default mainApi;
