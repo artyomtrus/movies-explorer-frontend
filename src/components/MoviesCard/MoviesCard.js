@@ -1,7 +1,10 @@
 import React from "react";
 import "./MoviesCard.css";
+import { useLocation } from "react-router-dom";
+import delIcon from "../../images/delete.svg";
 
 function MoviesCard(props) {
+  const { pathname } = useLocation();
   const hours = Math.floor(props.movie.duration / 60);
   const minutes = props.movie.duration % 60;
   const isSaved = props.savedMovies.some(
@@ -41,10 +44,18 @@ function MoviesCard(props) {
           className="movies-card__image"
         ></div>
       </a>
-
-      <button className={moviesCardSavedButtonClassName} onClick={handleClick}>
-        {!isSaved ? "Сохранить" : ""}
-      </button>
+      {pathname === "/saved-movies" ? (
+        <button className="movies-card__button" onClick={handleClick}>
+          <img src={delIcon} alt="удалить фильм" />
+        </button>
+      ) : (
+        <button
+          className={moviesCardSavedButtonClassName}
+          onClick={handleClick}
+        >
+          {!isSaved ? "Сохранить" : ""}
+        </button>
+      )}
     </li>
   );
 }
