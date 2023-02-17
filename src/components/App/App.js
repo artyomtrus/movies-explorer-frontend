@@ -305,20 +305,25 @@ function App() {
             <Route exact path="/">
               <Main />
             </Route>
-            <Route exact path="/movies">
-              {loggedIn ? <Redirect to="/movies" /> : <Redirect to="signin" />}
-            </Route>
             <Route exact path="/signin">
-              <Login
-                handleAuthorize={handleAuthorize}
-                loginError={loginError}
-              />
+              {!loggedIn ? (
+                <Login
+                  handleAuthorize={handleAuthorize}
+                  loginError={loginError}
+                />
+              ) : (
+                <Redirect to="/" />
+              )}
             </Route>
             <Route exact path="/signup">
-              <Register
-                handleRegistration={handleRegistration}
-                registerError={registerError}
-              />
+              {!loggedIn ? (
+                <Register
+                  handleRegistration={handleRegistration}
+                  registerError={registerError}
+                />
+              ) : (
+                <Redirect to="/" />
+              )}
             </Route>
             <Route path="*">
               <NotFoundPage goBack={goBack} />
