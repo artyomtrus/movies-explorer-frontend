@@ -8,6 +8,7 @@ function SavedMovies(props) {
   function handleSaveSearch(result) {
     setIsSaveSearch(result);
   }
+
   return (
     <div>
       <SearchForm getMovies={props.getMovies} isSaveSearch={handleSaveSearch} />

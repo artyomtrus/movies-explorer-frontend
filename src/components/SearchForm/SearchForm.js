@@ -15,8 +15,18 @@ function SearchForm(props) {
     setIsSavedChecked(JSON.parse(checkboxSaved));
   }, []);
 
+  React.useEffect(() => {
+    localStorage.setItem("checkboxSaved", false);
+    if (pathname === "/movies") {
+      setName(localStorage.getItem("request"));
+    }
+  }, [pathname]);
+
   function handleSubmit(e) {
     e.preventDefault();
+    if (pathname === "/movies") {
+      localStorage.setItem("request", name);
+    }
     props.getMovies(name);
     if (pathname === "/saved-movies") {
       props.isSaveSearch(true);
@@ -64,6 +74,7 @@ function SearchForm(props) {
           type="text"
           className="search-form__input"
           placeholder="Фильм"
+          value={name}
           onChange={(e) => {
             setName(e.target.value);
           }}

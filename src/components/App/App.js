@@ -35,9 +35,14 @@ function App() {
   const [filterSavedMovies, setFilterSavedMovies] = React.useState([]);
   const [savedMovies, setSavedMovies] = React.useState([]);
   const [isNotFound, setIsNotFound] = React.useState(false);
+  const [isNotFoundSaved, setIsNotFoundSaved] = React.useState(false);
   const [registerError, setRegisterError] = React.useState("");
   const [loginError, setLoginError] = React.useState("");
   const [profileError, setProfileError] = React.useState("");
+
+  React.useEffect(() => {
+    setIsNotFoundSaved(false);
+  }, [pathname]);
 
   React.useEffect(() => {
     tokenCheck();
@@ -60,6 +65,14 @@ function App() {
       });
     }
   }, [loggedIn]);
+
+  React.useState(() => {
+    let filterMovies = JSON.parse(localStorage.getItem("filterMovies"));
+    if (filterMovies) {
+      setFilterMovies(filterMovies);
+    }
+    filterMovies.length === 0 ? setIsNotFound(true) : setIsNotFound(false);
+  }, [filterMovies]);
 
   const handleLogin = () => {
     setLoggedIn(true);
@@ -200,26 +213,18 @@ function App() {
       let shortsFilterSavedMovies = filterSavedMovies.filter(
         (movie) => movie.duration <= SHORT_MOVIE
       );
-      // localStorage.setItem(
-      //   "filterSavedMovies",
-      //   JSON.stringify(shortsFilterSavedMovies)
-      // );
       setFilterSavedMovies(shortsFilterSavedMovies);
       shortsFilterSavedMovies.length === 0
-        ? setIsNotFound(true)
-        : setIsNotFound(false);
+        ? setIsNotFoundSaved(true)
+        : setIsNotFoundSaved(false);
     } else {
       let filterSavedMovies = savedMovies.filter(({ nameRU }) =>
         nameRU.toLowerCase().includes(name.toLowerCase())
       );
-      // localStorage.setItem(
-      //   "filterSavedMovies",
-      //   JSON.stringify(filterSavedMovies)
-      // );
       setFilterSavedMovies(filterSavedMovies);
       filterSavedMovies.length === 0
-        ? setIsNotFound(true)
-        : setIsNotFound(false);
+        ? setIsNotFoundSaved(true)
+        : setIsNotFoundSaved(false);
     }
   }
 
@@ -303,7 +308,7 @@ function App() {
               getMovies={handleGetSaveMovies}
               handleSavedMovie={handleSavedMovie}
               handleDeleteMovie={handleDeleteMovie}
-              isNotFound={isNotFound}
+              isNotFound={isNotFoundSaved}
             />
             <Route exact path="/">
               <Main />
