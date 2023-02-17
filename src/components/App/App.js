@@ -70,8 +70,8 @@ function App() {
     let filterMovies = JSON.parse(localStorage.getItem("filterMovies"));
     if (filterMovies) {
       setFilterMovies(filterMovies);
+      filterMovies.length === 0 ? setIsNotFound(true) : setIsNotFound(false);
     }
-    filterMovies.length === 0 ? setIsNotFound(true) : setIsNotFound(false);
   }, [filterMovies]);
 
   const handleLogin = () => {
