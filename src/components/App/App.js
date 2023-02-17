@@ -21,6 +21,7 @@ import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import Profile from "../Profile/Profile";
 import mainApi from "../../utils/MainApi";
 import moviesApi from "../../utils/MoviesApi";
+import { SHORT_MOVIE } from "../../utils/constants";
 
 function App() {
   const [userData, setUserData] = React.useState("");
@@ -48,7 +49,7 @@ function App() {
         .getUser()
         .then((userInfo) => {
           setCurrentUser(userInfo.data);
-          localStorage.setItem("checkbox", false);
+          // localStorage.setItem("checkbox", false);
         })
         .catch((err) => {
           console.log(err);
@@ -174,7 +175,9 @@ function App() {
       let filterMovies = data.filter(({ nameRU }) =>
         nameRU.toLowerCase().includes(name.toLowerCase())
       );
-      let shortsMovies = filterMovies.filter((movie) => movie.duration <= 40);
+      let shortsMovies = filterMovies.filter(
+        (movie) => movie.duration <= SHORT_MOVIE
+      );
       localStorage.setItem("filterMovies", JSON.stringify(shortsMovies));
       setFilterMovies(shortsMovies);
       shortsMovies.length === 0 ? setIsNotFound(true) : setIsNotFound(false);
@@ -189,18 +192,18 @@ function App() {
   }
 
   function handleGetSaveMovies(name) {
-    let checkboxStatus = localStorage.getItem("checkbox");
+    let checkboxStatus = localStorage.getItem("checkboxSaved");
     if (checkboxStatus === "true") {
       let filterSavedMovies = savedMovies.filter(({ nameRU }) =>
         nameRU.toLowerCase().includes(name.toLowerCase())
       );
       let shortsFilterSavedMovies = filterSavedMovies.filter(
-        (movie) => movie.duration <= 40
+        (movie) => movie.duration <= SHORT_MOVIE
       );
-      localStorage.setItem(
-        "filterSavedMovies",
-        JSON.stringify(shortsFilterSavedMovies)
-      );
+      // localStorage.setItem(
+      //   "filterSavedMovies",
+      //   JSON.stringify(shortsFilterSavedMovies)
+      // );
       setFilterSavedMovies(shortsFilterSavedMovies);
       shortsFilterSavedMovies.length === 0
         ? setIsNotFound(true)
@@ -209,10 +212,10 @@ function App() {
       let filterSavedMovies = savedMovies.filter(({ nameRU }) =>
         nameRU.toLowerCase().includes(name.toLowerCase())
       );
-      localStorage.setItem(
-        "filterSavedMovies",
-        JSON.stringify(filterSavedMovies)
-      );
+      // localStorage.setItem(
+      //   "filterSavedMovies",
+      //   JSON.stringify(filterSavedMovies)
+      // );
       setFilterSavedMovies(filterSavedMovies);
       filterSavedMovies.length === 0
         ? setIsNotFound(true)

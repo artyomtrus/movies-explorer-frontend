@@ -5,11 +5,14 @@ import { useLocation } from "react-router-dom";
 function SearchForm(props) {
   const [name, setName] = React.useState("");
   const [isChecked, setIsChecked] = React.useState(false);
+  const [isSavedChecked, setIsSavedChecked] = React.useState(false);
   const { pathname } = useLocation();
 
   React.useEffect(() => {
     let checkbox = localStorage.getItem("checkbox");
+    let checkboxSaved = localStorage.getItem("checkboxSaved");
     setIsChecked(JSON.parse(checkbox));
+    setIsSavedChecked(JSON.parse(checkboxSaved));
   }, []);
 
   function handleSubmit(e) {
@@ -21,18 +24,33 @@ function SearchForm(props) {
   }
 
   function onChange() {
-    if (isChecked) {
-      setIsChecked(false);
-      localStorage.setItem("checkbox", !isChecked);
+    if (pathname === "/saved-movies") {
+      if (isSavedChecked) {
+        setIsSavedChecked(false);
+        localStorage.setItem("checkboxSaved", !isSavedChecked);
+      } else {
+        setIsSavedChecked(true);
+        localStorage.setItem("checkboxSaved", !isSavedChecked);
+      }
     } else {
-      setIsChecked(true);
-      localStorage.setItem("checkbox", !isChecked);
+      if (isChecked) {
+        setIsChecked(false);
+        localStorage.setItem("checkbox", !isChecked);
+      } else {
+        setIsChecked(true);
+        localStorage.setItem("checkbox", !isChecked);
+      }
     }
   }
 
   function handleChecked() {
     let checkbox = localStorage.getItem("checkbox");
-    if (JSON.parse(checkbox)) {
+    let checkboxSaved = localStorage.getItem("checkboxSaved");
+    if (
+      pathname === "/saved-movies"
+        ? JSON.parse(checkboxSaved)
+        : JSON.parse(checkbox)
+    ) {
       return "checked";
     } else {
       return "";

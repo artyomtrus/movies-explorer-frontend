@@ -3,6 +3,15 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 import { useLocation } from "react-router-dom";
 import React from "react";
 import Preloader from "../Preloader/Preloader";
+import {
+  FULLSCREEN_COUNT,
+  FULLSCREEN_NUMBER_MOVIES,
+  FULLSCREEN_RESOLUTION,
+  MOBILE_NUMBER_MOVIES,
+  TABLET_COUNT,
+  TABLET_NUMBER_MOVIES,
+  TABLET_RESOLUTION,
+} from "../../utils/constants";
 
 function MoviesCardList(props) {
   const { pathname } = useLocation();
@@ -10,12 +19,12 @@ function MoviesCardList(props) {
 
   function shownMovies() {
     const display = window.innerWidth;
-    if (display > 1100) {
-      setNumberShownMovies(12);
-    } else if (display > 720) {
-      setNumberShownMovies(8);
-    } else if (display < 720) {
-      setNumberShownMovies(5);
+    if (display > FULLSCREEN_RESOLUTION) {
+      setNumberShownMovies(FULLSCREEN_NUMBER_MOVIES);
+    } else if (display > TABLET_RESOLUTION) {
+      setNumberShownMovies(TABLET_NUMBER_MOVIES);
+    } else if (display < TABLET_RESOLUTION) {
+      setNumberShownMovies(MOBILE_NUMBER_MOVIES);
     }
   }
 
@@ -26,15 +35,15 @@ function MoviesCardList(props) {
   React.useEffect(() => {
     setTimeout(() => {
       window.addEventListener("resize", shownMovies);
-    }, 1000);
+    }, FULLSCREEN_RESOLUTION);
   });
 
   function showMoreMovies() {
     const display = window.innerWidth;
-    if (display > 1100) {
-      setNumberShownMovies(numberShownMovies + 3);
+    if (display > FULLSCREEN_RESOLUTION) {
+      setNumberShownMovies(numberShownMovies + FULLSCREEN_COUNT);
     } else {
-      setNumberShownMovies(numberShownMovies + 2);
+      setNumberShownMovies(numberShownMovies + TABLET_COUNT);
     }
   }
 
