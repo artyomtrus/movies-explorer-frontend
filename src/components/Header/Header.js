@@ -3,7 +3,7 @@ import { Link, Route, Switch, useLocation } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import Navigation from "../Navigation/Navigation";
 
-function Header() {
+function Header(props) {
   const { pathname } = useLocation();
 
   return (
@@ -18,7 +18,7 @@ function Header() {
             <Link to="/" className="header__link">
               <img src={logo} alt="логотип" className="header__logo" />
             </Link>
-            <Navigation />
+            <Navigation loggedIn={props.loggedIn} userData={props.userData} />
           </header>
         </Route>
         <Route exact path={["/signup", "/signin"]}></Route>

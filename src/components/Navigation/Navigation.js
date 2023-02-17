@@ -1,8 +1,10 @@
 import "./Navigation.css";
 import { Link, NavLink } from "react-router-dom";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import React from "react";
 
-function Navigation() {
-  const isLogged = true;
+function Navigation(props) {
+  const currentUser = React.useContext(CurrentUserContext);
 
   function toggleBurger() {
     const burger = document.querySelector(".navigation__burger-icon");
@@ -13,7 +15,7 @@ function Navigation() {
 
   return (
     <>
-      {!isLogged ? (
+      {!props.loggedIn ? (
         <nav className="navigation navigation__navbar">
           <Link to="/signup" className="navigation__link">
             <p className="navigation__sign">Регистрация</p>
@@ -65,7 +67,7 @@ function Navigation() {
               </li>
               <li className="navigation__item navigation__item_profile">
                 <Link to="/profile" className="navigation__profile-name">
-                  Аккаунт
+                  {currentUser.email}
                 </Link>
               </li>
             </ul>

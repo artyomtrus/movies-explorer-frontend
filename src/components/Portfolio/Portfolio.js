@@ -9,6 +9,8 @@ function Portfolio() {
           <a
             href="https://github.com/artyomtrus/how-to-learn"
             className="portfolio__link"
+            target="_blank"
+            rel="noreferrer"
           >
             <p className="portfolio__text">Статичный сайт</p>
             <span className="portfolio__arrow"></span>
@@ -18,6 +20,8 @@ function Portfolio() {
           <a
             href="https://github.com/artyomtrus/russian-travel"
             className="portfolio__link"
+            target="_blank"
+            rel="noreferrer"
           >
             <p className="portfolio__text">Адаптивный сайт</p>
             <span className="portfolio__arrow"></span>
@@ -27,6 +31,8 @@ function Portfolio() {
           <a
             href="https://github.com/artyomtrus/react-mesto-api-full"
             className="portfolio__link"
+            target="_blank"
+            rel="noreferrer"
           >
             <p className="portfolio__text">Одностраничное приложение</p>
             <span className="portfolio__arrow"></span>

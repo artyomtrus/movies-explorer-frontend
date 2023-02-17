@@ -1,12 +1,20 @@
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import React from "react";
 
-function Movies() {
+function Movies(props) {
   return (
-    <div>
-      <SearchForm />
-      <MoviesCardList />
-    </div>
+    <>
+      <SearchForm getMovies={props.getMovies} />
+      <MoviesCardList
+        movies={props.movies}
+        savedMovies={props.savedMovies}
+        handleSavedMovie={props.handleSavedMovie}
+        handleDeleteMovie={props.handleDeleteMovie}
+        isLoading={props.isLoading}
+        isNotFound={props.isNotFound}
+      />
+    </>
   );
 }
 
